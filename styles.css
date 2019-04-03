@@ -1,17 +1,23 @@
-.remark-slide-number {
-  position: inherit;
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Playfair+Display');
+
+
+body {
+  font-family: 'Montserrat', sans-serif;
 }
 
-.remark-slide-number .progress-bar-container {
-  position: absolute;
-  bottom: 0;
-  height: 15px;
-  display: block;
-  left: 0;
-  right: 0;
+h1, h2, h3 {
+  font-family: 'Playfair Display', serif;
 }
 
-.remark-slide-number .progress-bar {
-  height: 100%;
-  background-color: red;
+
+.remark-slide-content h1 {
+    font-size: 40px;
+}
+
+.remark-slide-content h2 {
+    font-size: 35px;
+}
+
+.remark-slide-content h3 {
+    font-size: 30px;
 }

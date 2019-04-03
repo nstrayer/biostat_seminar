@@ -4,9 +4,9 @@ author: "Nick Strayer"
 date: "`r Sys.Date()`"
 output:
   xaringan::moon_reader:
+    css: ["default", "styles.css"]
     lib_dir: libs
     nature:
-      css: ['styles.css', metropolis]
       highlightStyle: github
       highlightLines: true
       beforeInit: "macros.js"
@@ -14,7 +14,7 @@ output:
 
 ```{r setup, echo = FALSE}
 
-fa <- function(name, ...) icon::fa(name, fixed_width = TRUE, size = 'lg', color = "#e34a33", ...)
+fa <- function(name, size = 'lg',  ...) icon::fa(name, fixed_width = TRUE, size = size, color = "#e34a33", ...)
 library(r2d3)
 network_data <- readr::read_rds('sample_network_data.rds')
 ```
@@ -22,20 +22,20 @@ network_data <- readr::read_rds('sample_network_data.rds')
 
 # Talk outline
 
-![:space 3]()
+![:space 6]()
 - Electronic medical records
 
 - PheWAS
 
-- Changing how we _think about_ these data
+- Changing how we ![:colorText orangered](think about) these data
 
 - Multimorbidity explorer
 
-- Changing how we _model_ these data
+- Changing how we ![:colorText orangered](model) these data
 
 - The stochastic block model
 
-- Applying on real data
+- Applying to real data
 
 - Future directions
 
@@ -45,21 +45,29 @@ network_data <- readr::read_rds('sample_network_data.rds')
 
 # Electronic medical records (EHR)
 
+![:space 1]()
 
-- In an effort to make healthcare more efficient EHR systems have become common in the US. 
+In an effort to make healthcare more efficient EHR systems have become common in the US. 
 
-- While originally made for billing purposes there is still a huge sum of information that, with careful effort, _hopefully_, can be extracted for research.
+![:space 3]()
+.pull-left[
+`r fa('file-invoice-dollar')` While originally made for billing purposes there is still a huge sum of information that, with careful effort, _hopefully_, can be extracted for research.
 
-- In this presentation I will focus on the subset of EHR pertaining to billing codes: ICD9, ICD10, and Phecodes.
+]
+.pull-right[
 
-![:centerPic 30](https://securecdn.pymnts.com/wp-content/uploads/2018/03/bigdata.jpg) ![:small 0.6]([image source](https://www.pymnts.com/data/2018/datatorrent-jeff-bettencourt-real-time-big-data/))
+`r fa('search')` In this presentation I will focus on the subset of EHR pertaining to billing codes: ICD9, ICD10, and Phecodes.
+]
+![:space 4]()
+
+![:centerPic 35](https://securecdn.pymnts.com/wp-content/uploads/2018/03/bigdata.jpg) ![:small 0.6]([image source](https://www.pymnts.com/data/2018/datatorrent-jeff-bettencourt-real-time-big-data/))
 
 
 
 ---
 # Biobanks
 
-![:space 4] 
+![:space 6] 
 
 `r fa('piggy-bank')` Some hospitals have repositories of biological samples that can be matched to their EHR.
 
@@ -77,6 +85,8 @@ network_data <- readr::read_rds('sample_network_data.rds')
 
 # PheWAS
 
+![:space 5] 
+
 In an effort to extract information from these results the technique PheWAS was made.
 
 ![:space 8] 
@@ -86,6 +96,7 @@ In an effort to extract information from these results the technique PheWAS was 
 ---
 
 ## Concept
+![:space 5] 
 
 ![:centerPic 90](figures/phewas-explainer.svg)
 
@@ -93,7 +104,7 @@ In an effort to extract information from these results the technique PheWAS was 
 
 ## The univariate problem
 
-![:space 12]()
+![:space 15]()
 
 `r fa('hand-point-up')` PheWAS looks at one genome `r icon::fa('arrow-right')` phenome association at a time.
 
@@ -167,29 +178,32 @@ By giving researcher's the ability to look at the network behavior of genotype-p
 ---
 ## How it is
 
-![:space 5]()
+![:space 4]()
 
 `r fa('box-open')` Central package contains all the building blocks of a typical ME deployment.
 
 ![:indent]()  `r fa('js-square')` Visualizations custom built in Javascript.
-![:space 3]()
+![:space 5]()
 
 `r fa('puzzle-piece')` Creating a custom app is an exercise in combining the neccesary components. 
 
-![:space 3]()
+![:space 5]()
 
 `r fa('cloud')` Hosted on lab RStudio Connect instance running on AWS.
   
 ![:indent]()  `r fa('docker')` If more security is desired, Docker image is available.
 
 ---
+
+class: center, middle
+
 ## Demo
 
 ---
 
 
 # Changing how we ![:colorText orangered](model) these data
-![:space 3]()
+![:space 8]()
 
 `r fa('project-diagram')` If visualizing the data as a network can help us understand them, why not model them as a network, too?
 ![:space 4]()
@@ -206,6 +220,8 @@ By giving researcher's the ability to look at the network behavior of genotype-p
 
 ## The ![:colorText orangered](S)tochastic ![:colorText orangered](B)lock ![:colorText orangered](M)odel
 
+![:space 3]()
+
 ![:centerPic 90](figures/the-sbm.svg)
 
 ---
@@ -216,6 +232,8 @@ By giving researcher's the ability to look at the network behavior of genotype-p
 ---
 ## Bipartite expansion
 
+![:space 2]()
+
 In its basic form the SBM only works with a single type of node, but we have two (phenotype and patients)...
 
 
@@ -224,9 +242,9 @@ In its basic form the SBM only works with a single type of node, but we have two
 
 ![:borderedCenterPic 80](figures/bipartite-sbm-paper.png)
 
-![:space 4]()
+![:space 6]()
 
-`r fa('wrench')` To fix this all we need to do is add a constraint to the model to only cluster nodes of the same type.
+`r fa('wrench')` To fix this we can add a constraint to the model to only cluster nodes of the same type.
 
 ![:indent]()  <img src='figures/bell-curve.svg' width = 40px/> This is equivalent to an infinitely strong prior on cluster 'types'.
 
@@ -241,20 +259,31 @@ In its basic form the SBM only works with a single type of node, but we have two
 ---
 ## Statistical properties
 
+
 Model is fit in a bayesian manor
+
+![:borderedCenterPic 55](figures/bayesian_sbm_paper.png)
+![:space 2]()
 
 .pull-left[
 
-### Priors
+### Priors 
+![:centerPic 40](figures/bayes.svg)
+
 Priors are set on both the group/cluster structure and the edge counts between groups.
 ]
 
 .pull-right[
 
 ### Fitting
+
+.center[
+`r fa('ruler', size = 2)`
+]
+
 Metropolis-Hastings is used to fit model using MCMC
 
-Very similar to how a Dirichlete mixture model is fit
+Very similar to how a dirichlet mixture model is fit
 
 ]
 
@@ -270,6 +299,12 @@ Very similar to how a Dirichlete mixture model is fit
 
 
 ![:centerPic 90](figures/edge-prior.svg)
+
+
+---
+### MCMC acception formula
+
+![:centerPic 90](figures/mcmc-formula.svg)
 
 ---
 ## Simulation results
@@ -309,6 +344,8 @@ class: center, middle
 ---
 # Future directions
 
+![:space 18]()
+
 - Simulations!
 
 - Turning into a semi-supervized method
@@ -317,3 +354,22 @@ class: center, middle
 
 - Optimizing visualizations for information transfer
 
+---
+# Aknowledgements
+
+![:space 2]()
+
+A thanks to those who have helped build these ideas to this point
+- Yaomin Xu
+- TBILab members
+- Quinn Wells
+- Michael Savona
+- Travis Spaulding
+- Vanderbilt drug repurposing group
+- Vanderbilt PheWAS group
+
+![:space 7]()
+
+And thanks to the funding sources who have paid me to play around with javascript
+- NIH Big Data to Knowledge training grant
+- Vanderbilt Biostatistics Department development grants

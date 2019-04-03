@@ -7,7 +7,7 @@ remark.macros.centerPic = function (percentage, bordered) {
 
 remark.macros.borderedCenterPic = function (percentage) {
   const url = this;
-  return `<div style="text-align:center; border: 1px solid black; box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);"> <img src='${url}' width = ${percentage}%/> </div>`;
+  return `<div style="text-align:center; "> <img style = "border: 1px solid black; box-shadow: 4px 4px 4px 0px rgba(0,0,0,0.75);" src='${url}' width = ${percentage}%/> </div>`;
 };
 
 
