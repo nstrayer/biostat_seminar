@@ -4,7 +4,7 @@
     <title>Taking a network view of EHR and Biobank data to find explainable multivariate patterns</title>
     <meta charset="utf-8" />
     <meta name="author" content="Nick Strayer" />
-    <meta name="date" content="2019-04-02" />
+    <meta name="date" content="2019-04-03" />
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link href="libs/font-awesome-5.3.1/css/fontawesome-all.min.css" rel="stylesheet" />
@@ -15,71 +15,34 @@ class: center, middle, inverse, title-slide
 
 # Taking a network view of EHR and Biobank data to find explainable multivariate patterns
 ### Nick Strayer
-### 2019-04-02
+### 2019-04-03
 
 ---
 
 
-&lt;style&gt;
-.remark-slide-number {
-  position: inherit;
-}
-
-.remark-slide-number .progress-bar-container {
-  position: absolute;
-  bottom: 0;
-  height: 15px;
-  display: block;
-  left: 0;
-  right: 0;
-}
-
-.remark-slide-number .progress-bar {
-  height: 100%;
-  background-color: red;
-  width: calc(var(--progress) / var(--total) * 100%);
-}
-
-.remark-slide-number .progress-bar:after {
-  content: calc(var(--progress));
-}
 
 
-```r
-fa &lt;- function(name, ...) icon::fa(name, fixed_width = TRUE, size = 'lg', color = "#e34a33", ...)
-```
-
-
-## Abstract
-
-Extracting informative and meaningful results from EHR and Biobank data is an important task in genomic data science. Up to now statistically principled methods that can find robust and explainable multivariate patterns in these data have yet to take hold. Existing analysis frameworks have difficulty dealing with both the high-dimensionality of such data and also how to communicate the results in an intuitive and actionable way.
- These methods have already been successfully deployed in real-world collaboration scenarios; furthermore, simulations of the theoretical properties of the methods have shown they are consistent and powerful in extracting multivariate patterns. By merging network-science and statistics these methods have the potential to produce more efficient and intuitive analysis tools for dealing with complex EHR and biobank data.
-
-
-In this talk I will go over some of the recent work we have done with PheWAS data that views it as a bipartite network of individual-feature relationships instead of the traditional observation and variable view; in addition we will show new visualization tools we've developed that allow collaborators to interact with these networks to interrogate genotype-phenotype associations.
 
 ---
 # Talk outline
 
+![:space 3]()
 - Electronic medical records
+
 - PheWAS
-  - Concept
-  - Univariate Problem
+
 - Changing how we _think about_ these data
+
 - Multimorbidity explorer
-  - What it is
-  - How it is
-  - Demo
+
 - Changing how we _model_ these data
+
 - The stochastic block model
-  - Bipartite expansion
-  - Statistical rigor
-  - Simulation results
+
 - Applying on real data
-  - MDS
-  - Heart failure
-  - RNA Seq
+
 - Future directions
+
 
 
 ---
@@ -325,8 +288,7 @@ The BiSBM outperforms dirichlet mixture models even when the true generating dis
 <script>var slideshow = remark.create({
 "css": ["styles.css", "metropolis"],
 "highlightStyle": "github",
-"highlightLines": true,
-"slideNumberFormat": "<div class=\"progress-bar-container\">   <div class=\"progress-bar\"  style=\"--total: %total%; --progress:%current%;\">   </div> </div>"
+"highlightLines": true
 });
 if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   window.dispatchEvent(new Event('resize'));
