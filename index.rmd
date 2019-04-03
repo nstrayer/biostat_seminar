@@ -87,7 +87,7 @@ In an effort to make healthcare more efficient EHR systems have become common in
 
 ![:space 5] 
 
-In an effort to extract information from these results the technique PheWAS was made.
+In an effort to extract information from these data the technique PheWAS was made.
 
 ![:space 8] 
 
@@ -106,7 +106,7 @@ In an effort to extract information from these results the technique PheWAS was 
 
 ![:space 15]()
 
-`r fa('hand-point-up')` PheWAS looks at one genome `r icon::fa('arrow-right')` phenome association at a time.
+`r fa('hand-point-up')` PheWAS looks at one genotype `r icon::fa('arrow-right')` phenotype association at a time.
 
 
 
@@ -257,7 +257,7 @@ In its basic form the SBM only works with a single type of node, but we have two
 
 
 ---
-## Statistical properties
+## Statistical features
 
 
 Model is fit in a bayesian manor
@@ -328,7 +328,7 @@ class: center, middle
 
 ---
 
-### Looking for [patterns in Myloid disease](https://prod.tbilab.org/connect/#/apps/20/access)
+### Looking for [patterns in Myeloid disease](https://prod.tbilab.org/connect/#/apps/20/access)
 
 ![:centerPic 80](figures/mds_circles.png)
 
@@ -362,9 +362,10 @@ class: center, middle
 A thanks to those who have helped build these ideas to this point
 - Yaomin Xu
 - TBILab members
-- Quinn Wells
-- Michael Savona
+- Wells Lab
+- Savona Lab
 - Travis Spaulding
+- Denny Lab
 - Vanderbilt drug repurposing group
 - Vanderbilt PheWAS group
 
@@ -372,4 +373,29 @@ A thanks to those who have helped build these ideas to this point
 
 And thanks to the funding sources who have paid me to play around with javascript
 - NIH Big Data to Knowledge training grant
-- Vanderbilt Biostatistics Department development grants
+- Vanderbilt Biostatistics department 2018 development grant
+
+---
+# References
+
+These slides:
+
+![:indent]() `r fa('eye')` [nickstrayer.me/biostat_seminar](http://nickstrayer.me/biostat_seminar/) 
+
+![:indent]() `r fa('github')` [github.com/nstrayer/biostat_seminar](https://github.com/nstrayer/biostat_seminar)
+
+
+![:space 8]()
+Relevant papers:
+
+- ![:small 0.7](Gerlach, Martin, Tiago P. Peixoto, and Eduardo G. Altmann. 2018. “A Network Approach to Topic Models.” Science Advances)
+
+- ![:small 0.7](Larremore, Daniel B., Aaron Clauset, and Abigail Z. Jacobs. 2014. “Efficiently Inferring Community Structure in Bipartite Networks.” Physical Review. E, Statistical, Nonlinear, and Soft Matter Physics)
+
+- ![:small 0.7](Peixoto, Tiago P. 2016. “Nonparametric Bayesian Inference of the Microcanonical Stochastic Block Model.” arXiv [physics.data-An]. arXiv. http://arxiv.org/abs/1610.02703.)
+
+- ![:small 0.7](Peixoto, Tiago P. 2017. “Bayesian Stochastic Blockmodeling.” arXiv [stat.ML]. arXiv. http://arxiv.org/abs/1705.10225.)
+
+
+
+
